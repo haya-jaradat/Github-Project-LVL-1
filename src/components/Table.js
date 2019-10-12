@@ -1,38 +1,31 @@
 import React, { Component } from 'react';
+import Repo from './Repo'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default class Table extends Component {
   render() {
-    // { repos.map((elem,index)=>{
-    //   return (  <tr>
-    //     <td>{this.props.repos.id}</td>
-    //     <td>Smith</td>
-    //     <td>50</td>
-    //   </tr>
-    //   )}
-    //     )}
+   const {repos}=this.props;
+    // const{id,title}=repos;
     return (
       <div style={{ border: '3px green dotted' }}>
-      
- <table style={{ border: '1px solid black' }}>
+     
+ <table class="table table-dark  table-bordered">
   <tr>
-    <th style={{  border: '1px solid black '}}>Number</th>
-    <th style={{  border: '1px solid black '}}>Title</th>
-    <th style={{  border: '1px solid black '}}>Repo Status</th>
-    <th style={{  border: '1px solid black '}}>Check</th>
-    <th style={{  border: '1px solid black '}}>isPrivate</th>
-    <th style={{  border: '1px solid black '}}>Languge</th>
-    <th style={{  border: '1px solid black '}}>Delete</th>
-  </tr>
-  <tr>
-    <td  style={{  border: '1px solid black '}}>1</td>
-    <td  style={{  border: '1px solid black '}}>Array</td>
-    <td  style={{  border: '1px solid black '}}>Private</td>
-    <td  style={{  border: '1px solid black '}}> <input type="checkbox"/></td>
-    <td  style={{  border: '1px solid black '}}>Yes</td>
-    <td  style={{  border: '1px solid black '}}>Html</td>
-    <td  style={{  border: '1px solid black '}}>X</td>
+    <th scope="col">Number</th>
+    <th scope="col">Title</th>
+    <th scope="col">Repo Status</th>
+    <th scope="col">Check</th>
+    <th scope="col">isPrivate</th>
+    <th scope="col">Languge</th>
+    <th scope="col">Delete</th>
   </tr>
 </table>
+{ repos.map((elemt)=>{
+      return ( 
+        <Repo key={repos.id} repo={elemt} delete={this.props.deldel}/>
+      )}
+        )}
       </div>
     );
   }
